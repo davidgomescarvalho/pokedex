@@ -1,0 +1,6 @@
+<h1>Pokémon List</h1>
+<ul>
+  <% @pokemons['results'].each do |pokemon| %>
+    <li><%= link_to pokemon['name'].capitalize, pokemon_path(pokemon['name']) %></li>
+  <% end %>
+</ul>
