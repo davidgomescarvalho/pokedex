@@ -1,3 +1,5 @@
-<h1><%= @pokemon['name'].capitalize %></h1>
+<h1><%= @pokemon['name'] %></h1>
+<img src="<%= @pokemon['sprites']['front_default'] %>" alt="<%= @pokemon['name'] %> sprite">
 <p>Height: <%= @pokemon['height'] %></p>
 <p>Weight: <%= @pokemon['weight'] %></p>
+<%= link_to 'Back to Index', pokemons_path %>
