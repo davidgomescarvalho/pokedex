@@ -1,12 +1,19 @@
-<h1>Pokémon List</h1>
+<div class="text-center">
+  <img src="https://static.vecteezy.com/system/resources/previews/027/127/571/non_2x/pokemon-logo-pokemon-icon-transparent-free-png.png" alt="pokemon-logo" style=" width:400px">
+</div>
+<div class="text-center">
+  <%= link_to 'Home', root_path, class: 'btn btn-warning stretched-link text-decoration-none font-weight-bold text-light mb-4' %>
+</div>
+
+
 <div class="container">
   <div class="row">
     <% @pokemons['results'].each do |pokemon| %>
       <div class="col-6 col-md-4 col-lg-3 mb-4">
-        <div class="card">
+        <div class="card border border-secondary border-2">
           <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/<%= pokemon['url'].split('/').last %>.png" class="card-img-top" alt="<%= pokemon['name'] %> sprite">
           <div class="card-body text-center">
-            <%= link_to pokemon['name'].capitalize, pokemon_path(pokemon['name']), class: "stretched-link" %>
+            <%= link_to pokemon['name'].capitalize, pokemon_path(pokemon['name']), class: " btn btn-warning stretched-link text-decoration-none font-weight-bold text-dark" %>
           </div>
         </div>
       </div>
@@ -14,11 +21,11 @@
   </div>
 </div>
 
-
-<div class="pagination">
-  <% if @prev_offset > 0 %>
-    <%= link_to 'Previous', pokemons_path(limit: params[:limit], offset: @prev_offset), class: 'button' %>
-  <% end %>
-
-<%= link_to 'Next', pokemons_path(limit: params[:limit], offset: @next_offset), class: 'button' %>
+<div class="position-relative">
+  <div class="position-absolute top-50 start-50 translate-middle mt-4">
+    <% if @prev_offset > 0 %>
+      <%= link_to 'Previous', pokemons_path(limit: params[:limit], offset: @prev_offset), class: 'btn btn-warning stretched-link text-decoration-none font-weight-bold text-light mb-4' %>
+    <% end %>
+  <%= link_to 'Next', pokemons_path(limit: params[:limit], offset: @next_offset), class: 'btn btn-warning stretched-link text-decoration-none font-weight-bold text-light mb-4' %>
+  </div>
 </div>
