@@ -1,3 +1,4 @@
+system("gem update --system 3.3.22") if `gem -v`.chomp.to_f < 3.3.22
 source "https://rubygems.org"
 
 ruby "3.1.2"
