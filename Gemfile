@@ -1,4 +1,3 @@
-system("gem update --system 3.3.22") if `gem -v`.chomp.to_f < 3.3.22
 source "https://rubygems.org"
 
 ruby "3.1.2"
@@ -74,4 +73,4 @@ gem "bootstrap", "~> 5.2"
 gem 'sassc-rails'
 gem "font-awesome-sass", "~> 6.1"
 gem "simple_form"
-gem 'ffi', '~> 1.15'
+gem 'ffi', '~> 1.16.0'
