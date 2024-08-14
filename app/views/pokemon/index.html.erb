@@ -1,6 +1,24 @@
 <h1>Pokémon List</h1>
-<ul>
-  <% @pokemons['results'].each do |pokemon| %>
-    <li><%= link_to pokemon['name'], pokemon_path(pokemon['name']) %></li>
+<div class="container">
+  <div class="row">
+    <% @pokemons['results'].each do |pokemon| %>
+      <div class="col-6 col-md-4 col-lg-3 mb-4">
+        <div class="card">
+          <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/<%= pokemon['url'].split('/').last %>.png" class="card-img-top" alt="<%= pokemon['name'] %> sprite">
+          <div class="card-body text-center">
+            <%= link_to pokemon['name'].capitalize, pokemon_path(pokemon['name']), class: "stretched-link" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+<div class="pagination">
+  <% if @prev_offset > 0 %>
+    <%= link_to 'Previous', pokemons_path(limit: params[:limit], offset: @prev_offset), class: 'button' %>
   <% end %>
-</ul>
+
+<%= link_to 'Next', pokemons_path(limit: params[:limit], offset: @next_offset), class: 'button' %>
+</div>
