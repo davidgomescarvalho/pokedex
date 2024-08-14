@@ -1,7 +1,4 @@
 source "https://rubygems.org"
-post_install do
-  system('gem update --system 3.3.22')
-end
 
 ruby "3.1.2"
 
@@ -76,3 +73,4 @@ gem "bootstrap", "~> 5.2"
 gem 'sassc-rails'
 gem "font-awesome-sass", "~> 6.1"
 gem "simple_form"
+gem 'ffi', '~> 1.15'
