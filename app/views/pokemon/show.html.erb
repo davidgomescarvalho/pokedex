@@ -1,40 +1,50 @@
-<div class="container">
-  <h1 class="text-center mt-5 text-dark">
-    <%= @pokemon['name'].capitalize %>
-  </h1>
+<div class="container text-center">
+    <h2 class="mx-auto text-dark bg-light border border-dark border-2 rounded" style="width: 200px"><%= @pokemon['name'].capitalize %></h2>
 </div>
-<div class="container mt-5  d-flex justify-content-center">
-  <div class="card border border-black border-4" style="width: 20rem;">
+
+<div class="container mt-5 d-flex justify-content-center">
+  <div class="card border border-black border-4" style="width: 22rem;">
     <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/<%= @pokemon['id'] %>.png" class="card-img-top" alt="<%= @pokemon['name'] %> sprite">
     <div class="card-body">
-      <h5 class="card-title"><%= @pokemon['name'].capitalize %></h5>
-      <p class="card-text">
-        Height: - <%= @pokemon['height'] %>
-      </p>
-      <p>
-        Weight: - <%= @pokemon['weight'] %>
-      </p>
-      <p>
-        Base Experience: - <%= @pokemon['base_experience'] %>
-      </p>
-      <p>
-        Species: - <%= @pokemon['species']['name'] %>
-      </p>
-      <p>
-         Types:
+      <h5 class="card-title text-center"><%= @pokemon['name'].capitalize %></h5>
+
+      <!-- Row of columns for height, weight, base experience, and species -->
+      <div class="row text-center">
+        <div class="col border border-secondary border-3 rounded-3 m-1">
+          <p><strong>Height:</strong> <br> <%= @pokemon['height'] %> m</p>
+        </div>
+        <div class="col border border-secondary border-3 rounded-3 m-1">
+          <p><strong>Weight:</strong> <br> <%= @pokemon['weight'] %> Kg</p>
+        </div>
+      </div>
+      <div class="row text-center">
+        <div class="col border border-secondary border-3 rounded-3 m-1">
+          <p><strong>Base Experience:</strong> <br> <%= @pokemon['base_experience'] %></p>
+        </div>
+        <div class="col border border-secondary border-3 rounded-3 m-1">
+          <p><strong>Species:</strong> <br> <%= @pokemon['species']['name'].capitalize %></p>
+        </div>
+      </div>
+
+      <!-- Separate div for types and stats, centered -->
+      <div class="mt-4 text-center">
+        <p><strong>Types:</strong></p>
         <% @pokemon['types'].each do |type| %>
           <% type_class = "badge-#{type['type']['name']}" %>
           <span class="badge <%= type_class %>"><%= type['type']['name'].capitalize %></span>
         <% end %>
-      </p>
-      <p>
-        Stats:
+      </div>
+
+      <div class="mt-3 text-center">
+        <p><strong>Stats:</strong></p>
         <% @pokemon['stats'].each do |stat| %>
           <span class="badge bg-warning text-dark"><%= stat['stat']['name'] %>: <%= stat['base_stat'] %></span>
         <% end %>
-      </p>
+      </div>
+      <div class="text-center">
+        <%= link_to 'Back to Index', pokemons_path, class: 'btn btn-success stretched-link text-decoration-none font-weight-bold text-light mt-4' %>
+      </div>
 
-      <%= link_to 'Back to Index', pokemons_path, class: 'btn btn-warning stretched-link text-decoration-none font-weight-bold text-light mb-4' %>
     </div>
   </div>
-  </div>
+</div>

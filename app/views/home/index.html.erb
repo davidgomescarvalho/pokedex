@@ -1,13 +1,15 @@
-<div class="container bg-light border border-warning border-3 mt-5 p-3 bg-gradient-dark">
+<div class="container bg-light border border-warning border-3 mt-4 p-3 bg-gradient-dark">
   <div class="text-center">
-      <img src="https://static.thenounproject.com/png/594338-200.png" alt="pokedex-logo" class="rounded">
+      <img src="https://static.thenounproject.com/png/594338-200.png" alt="pokedex-logo" class="rounded" style="height: 200px">
     <div class="text-center">
-      <img src="https://www.svgrepo.com/show/306584/pokemon.svg" alt="pokemon-logo" style="height: 400px">
+      <img src="https://www.svgrepo.com/show/306584/pokemon.svg" alt="pokemon-logo" style="height: 300px">
     </div>
-
   </div>
-    <h1 class="text-center mt-5 text-danger">Welcome to the Pokédex</h1>
+  <div class="shadow-lg p-3 mb-5 bg-body rounded">
+     <h1 class="text-center mt-5 text-danger">Welcome to the Pokédex</h1>
     <p class="text-center mt-3 text-dark"> <strong>Explore the world of Pokémon! Use the navigation to browse through different Pokémon.</strong></p>
+  </div>
+
   <div class="text-center mt-5">
     <%= link_to 'View Pokémon List', pokemons_path, class: 'btn btn-warning fw-bold' %>
   </div>
