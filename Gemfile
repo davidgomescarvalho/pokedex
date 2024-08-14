@@ -1,4 +1,7 @@
 source "https://rubygems.org"
+post_install do
+  system('gem update --system 3.3.22')
+end
 
 ruby "3.1.2"
 
